@@ -1,0 +1,2125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0A0E1A">
+<meta name="description" content="Instant Virtual Matches - Smart Football Data. Clear Match Analysis.">
+<title>INSTANT VIRTUAL MATCHES</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --bg:#0A0E1A;
+    --card:#121826;
+    --card2:#182132;
+    --green:#00D26A;
+    --blue:#2F81F7;
+    --orange:#FF8A00;
+    --red:#EF4444;
+    --text:#E5E7EB;
+    --muted:#9CA3AF;
+    --border:#263247;
+    --white:#fff;
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Inter,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    min-height:100vh;
+}
+
+button,
+input,
+select{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+/* HEADER */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(10,14,26,.96);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid var(--border);
+}
+
+.nav{
+    max-width:1200px;
+    margin:auto;
+    min-height:70px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:12px 16px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo{
+    width:40px;
+    height:40px;
+    border-radius:12px;
+    background:linear-gradient(135deg,var(--green),var(--blue));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#06130d;
+    font-weight:900;
+}
+
+.brand-text{
+    font-size:14px;
+    font-weight:800;
+    letter-spacing:.4px;
+}
+
+.brand-sub{
+    display:block;
+    font-size:9px;
+    color:var(--muted);
+    margin-top:3px;
+    font-weight:500;
+}
+
+.nav-actions{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.icon-btn{
+    width:40px;
+    height:40px;
+    border:1px solid var(--border);
+    background:var(--card);
+    color:var(--text);
+    border-radius:12px;
+    font-size:19px;
+}
+
+.menu-btn{
+    display:none;
+}
+
+/* NAV MENU */
+
+.desktop-menu{
+    display:flex;
+    gap:18px;
+    align-items:center;
+    margin-left:auto;
+    margin-right:18px;
+}
+
+.desktop-menu a{
+    color:var(--muted);
+    font-size:12px;
+    font-weight:600;
+}
+
+.desktop-menu a:hover{
+    color:var(--green);
+}
+
+.mobile-menu{
+    display:none;
+    padding:12px 16px 18px;
+    border-top:1px solid var(--border);
+}
+
+.mobile-menu a{
+    display:block;
+    padding:13px 5px;
+    color:var(--muted);
+    border-bottom:1px solid var(--border);
+}
+
+/* MAIN */
+
+.container{
+    width:100%;
+    max-width:1200px;
+    margin:auto;
+    padding:20px 14px 50px;
+}
+
+.hero{
+    padding:24px 0 18px;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    background:rgba(0,210,106,.1);
+    border:1px solid rgba(0,210,106,.25);
+    color:var(--green);
+    border-radius:999px;
+    padding:7px 11px;
+    font-size:10px;
+    font-weight:700;
+    margin-bottom:12px;
+}
+
+.badge-dot{
+    width:7px;
+    height:7px;
+    background:var(--green);
+    border-radius:50%;
+}
+
+.hero h1{
+    font-size:clamp(27px,7vw,52px);
+    line-height:1.05;
+    font-weight:800;
+    letter-spacing:-1px;
+}
+
+.hero h1 span{
+    color:var(--green);
+}
+
+.hero p{
+    color:var(--muted);
+    margin-top:10px;
+    font-size:13px;
+    line-height:1.6;
+    max-width:680px;
+}
+
+/* STATS */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:8px;
+    margin:15px 0 22px;
+}
+
+.stat{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:15px;
+    padding:13px 9px;
+    text-align:center;
+}
+
+.stat strong{
+    display:block;
+    color:var(--green);
+    font-size:20px;
+}
+
+.stat span{
+    display:block;
+    color:var(--muted);
+    font-size:9px;
+    margin-top:4px;
+}
+
+/* TOOLBAR */
+
+.section-title{
+    font-size:18px;
+    font-weight:800;
+    margin-bottom:12px;
+}
+
+.toolbar{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:13px;
+    margin-bottom:16px;
+}
+
+.filter-label{
+    color:var(--muted);
+    font-size:10px;
+    font-weight:700;
+    margin-bottom:7px;
+    text-transform:uppercase;
+}
+
+.filter-row{
+    display:flex;
+    gap:7px;
+    overflow-x:auto;
+    padding-bottom:4px;
+}
+
+.filter-row::-webkit-scrollbar{
+    height:3px;
+}
+
+.filter{
+    flex:0 0 auto;
+    border:1px solid var(--border);
+    background:#0f1522;
+    color:var(--muted);
+    border-radius:10px;
+    padding:9px 12px;
+    font-size:10px;
+    font-weight:700;
+}
+
+.filter.active{
+    background:var(--green);
+    border-color:var(--green);
+    color:#06130d;
+}
+
+.search-box{
+    display:none;
+    margin-top:10px;
+}
+
+.search-box input{
+    width:100%;
+    background:#0c121e;
+    border:1px solid var(--border);
+    color:var(--text);
+    border-radius:11px;
+    padding:12px;
+    outline:none;
+}
+
+/* MATCH GRID */
+
+.match-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:12px;
+}
+
+.match-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:19px;
+    padding:15px;
+    transition:.2s;
+}
+
+.match-card:hover{
+    border-color:#35506e;
+    transform:translateY(-1px);
+}
+
+.match-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:14px;
+}
+
+.league{
+    color:var(--blue);
+    font-size:10px;
+    font-weight:800;
+}
+
+.time{
+    color:var(--muted);
+    font-size:10px;
+}
+
+.teams{
+    display:grid;
+    grid-template-columns:1fr 55px 1fr;
+    align-items:center;
+    text-align:center;
+    margin-bottom:16px;
+}
+
+.team{
+    font-size:13px;
+    font-weight:700;
+}
+
+.vs{
+    color:var(--muted);
+    font-size:10px;
+}
+
+.prediction-title{
+    color:var(--muted);
+    font-size:9px;
+    font-weight:700;
+    margin-bottom:8px;
+    text-transform:uppercase;
+}
+
+.prob-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:7px;
+}
+
+.prob{
+    background:#0d1420;
+    border-radius:11px;
+    padding:9px 6px;
+    text-align:center;
+}
+
+.prob label{
+    display:block;
+    color:var(--muted);
+    font-size:9px;
+}
+
+.prob strong{
+    display:block;
+    margin-top:3px;
+    font-size:16px;
+}
+
+.bar{
+    height:5px;
+    background:#202b3c;
+    border-radius:10px;
+    overflow:hidden;
+    margin-top:8px;
+}
+
+.bar i{
+    display:block;
+    height:100%;
+    border-radius:10px;
+    background:var(--green);
+}
+
+.market-mini{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:6px;
+    margin-top:12px;
+}
+
+.market-mini div{
+    border:1px solid var(--border);
+    border-radius:9px;
+    padding:7px 4px;
+    text-align:center;
+}
+
+.market-mini span{
+    display:block;
+    color:var(--muted);
+    font-size:8px;
+}
+
+.market-mini b{
+    display:block;
+    font-size:11px;
+    margin-top:2px;
+}
+
+.signal{
+    margin-top:12px;
+    padding:7px 9px;
+    border-radius:8px;
+    font-size:9px;
+    font-weight:800;
+    text-align:center;
+}
+
+.high{
+    background:rgba(0,210,106,.1);
+    color:var(--green);
+}
+
+.medium{
+    background:rgba(255,138,0,.1);
+    color:var(--orange);
+}
+
+.low{
+    background:rgba(239,68,68,.1);
+    color:var(--red);
+}
+
+.full-btn{
+    width:100%;
+    margin-top:12px;
+    padding:11px;
+    border:none;
+    border-radius:11px;
+    background:var(--blue);
+    color:white;
+    font-size:10px;
+    font-weight:800;
+}
+
+/* TOP SIGNALS */
+
+.top-signals{
+    margin-top:28px;
+}
+
+.signal-list{
+    display:grid;
+    gap:8px;
+}
+
+.signal-item{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:13px;
+    padding:12px;
+    display:flex;
+    align-items:center;
+    gap:11px;
+}
+
+.rank{
+    width:30px;
+    height:30px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:9px;
+    background:#1a2435;
+    color:var(--green);
+    font-weight:800;
+    font-size:12px;
+}
+
+.signal-info{
+    flex:1;
+}
+
+.signal-info strong{
+    display:block;
+    font-size:11px;
+}
+
+.signal-info span{
+    display:block;
+    color:var(--muted);
+    font-size:9px;
+    margin-top:3px;
+}
+
+.signal-percent{
+    font-size:16px;
+    font-weight:800;
+    color:var(--green);
+}
+
+/* UPLOAD */
+
+.upload-section{
+    margin-top:28px;
+}
+
+.upload-box{
+    background:var(--card);
+    border:1px dashed #3a4a62;
+    border-radius:18px;
+    padding:25px 15px;
+    text-align:center;
+}
+
+.upload-icon{
+    font-size:34px;
+    margin-bottom:8px;
+}
+
+.upload-box h3{
+    font-size:14px;
+}
+
+.upload-box p{
+    color:var(--muted);
+    font-size:10px;
+    line-height:1.5;
+    margin:7px 0 13px;
+}
+
+.upload-btn{
+    display:inline-block;
+    background:var(--green);
+    color:#06130d;
+    border-radius:10px;
+    padding:11px 15px;
+    font-size:10px;
+    font-weight:800;
+}
+
+#screenshotInput{
+    display:none;
+}
+
+.preview{
+    display:none;
+    max-width:100%;
+    max-height:250px;
+    border-radius:12px;
+    margin:15px auto 0;
+}
+
+/* MODAL */
+
+.modal{
+    position:fixed;
+    inset:0;
+    z-index:2000;
+    display:none;
+    background:rgba(0,0,0,.75);
+    padding:15px;
+    overflow-y:auto;
+}
+
+.modal.open{
+    display:flex;
+    align-items:flex-start;
+    justify-content:center;
+}
+
+.modal-card{
+    width:100%;
+    max-width:720px;
+    margin:20px auto;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:16px;
+}
+
+.modal-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:15px;
+}
+
+.close{
+    border:none;
+    background:#202b3c;
+    color:white;
+    width:35px;
+    height:35px;
+    border-radius:10px;
+}
+
+.analysis-header{
+    text-align:center;
+    padding:15px;
+    background:#0d1420;
+    border-radius:15px;
+}
+
+.analysis-header .league{
+    margin-bottom:8px;
+}
+
+.analysis-teams{
+    font-size:16px;
+    font-weight:800;
+}
+
+.analysis-vs{
+    color:var(--muted);
+    font-size:10px;
+    margin:5px;
+}
+
+.analysis-section{
+    margin-top:15px;
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:13px;
+}
+
+.analysis-section h3{
+    font-size:12px;
+    margin-bottom:10px;
+}
+
+.form{
+    display:flex;
+    gap:5px;
+}
+
+.form span{
+    width:26px;
+    height:26px;
+    border-radius:7px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:9px;
+    font-weight:800;
+}
+
+.win{
+    background:rgba(0,210,106,.15);
+    color:var(--green);
+}
+
+.draw{
+    background:rgba(255,138,0,.15);
+    color:var(--orange);
+}
+
+.loss{
+    background:rgba(239,68,68,.15);
+    color:var(--red);
+}
+
+.metric-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+}
+
+.metric{
+    background:#0d1420;
+    border-radius:10px;
+    padding:10px;
+}
+
+.metric small{
+    color:var(--muted);
+    display:block;
+    font-size:8px;
+}
+
+.metric strong{
+    display:block;
+    margin-top:4px;
+    font-size:14px;
+}
+
+.market-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 0;
+    border-bottom:1px solid var(--border);
+}
+
+.market-row:last-child{
+    border-bottom:none;
+}
+
+.market-row span{
+    font-size:10px;
+    color:var(--muted);
+}
+
+.market-row strong{
+    color:var(--green);
+    font-size:13px;
+}
+
+.why-list{
+    list-style:none;
+}
+
+.why-list li{
+    color:var(--muted);
+    font-size:10px;
+    line-height:1.6;
+    margin:5px 0;
+}
+
+/* HISTORY */
+
+.history{
+    margin-top:28px;
+}
+
+.history-table{
+    width:100%;
+    border-collapse:collapse;
+    background:var(--card);
+    border-radius:14px;
+    overflow:hidden;
+    font-size:9px;
+}
+
+.history-table th,
+.history-table td{
+    padding:10px 7px;
+    text-align:left;
+    border-bottom:1px solid var(--border);
+}
+
+.history-table th{
+    color:var(--muted);
+    font-size:8px;
+}
+
+.correct{
+    color:var(--green);
+    font-weight:800;
+}
+
+/* FOOTER */
+
+footer{
+    border-top:1px solid var(--border);
+    margin-top:30px;
+    padding:25px 14px;
+    text-align:center;
+}
+
+.footer-brand{
+    color:var(--green);
+    font-weight:800;
+    font-size:13px;
+}
+
+footer p{
+    color:var(--muted);
+    font-size:9px;
+    line-height:1.6;
+    max-width:650px;
+    margin:8px auto;
+}
+
+.footer-links{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-top:10px;
+}
+
+.footer-links a{
+    color:var(--muted);
+    font-size:9px;
+}
+
+/* DESKTOP */
+
+@media(min-width:700px){
+
+    .container{
+        padding:30px 24px 60px;
+    }
+
+    .match-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .stats{
+        max-width:650px;
+    }
+}
+
+@media(min-width:1050px){
+
+    .match-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .menu-btn{
+        display:none;
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    .desktop-menu{
+        display:none;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+}
+
+.hidden{
+    display:none!important;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="nav">
+
+        <div class="brand">
+            <div class="logo">IV</div>
+            <div>
+                <div class="brand-text">INSTANT VIRTUAL MATCHES</div>
+                <span class="brand-sub">SMART FOOTBALL DATA</span>
+            </div>
+        </div>
+
+        <nav class="desktop-menu">
+            <a href="#home">HOME</a>
+            <a href="#today">TODAY</a>
+            <a href="#predictions">PREDICTIONS</a>
+            <a href="#markets">MARKETS</a>
+            <a href="#history">HISTORY</a>
+            <a href="#teams">TEAMS</a>
+            <a href="#about">ABOUT</a>
+        </nav>
+
+        <div class="nav-actions">
+            <button class="icon-btn" id="searchBtn">⌕</button>
+            <button class="icon-btn menu-btn" id="menuBtn">☰</button>
+        </div>
+
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#home">HOME</a>
+        <a href="#today">TODAY</a>
+        <a href="#predictions">PREDICTIONS</a>
+        <a href="#markets">MARKETS</a>
+        <a href="#history">HISTORY</a>
+        <a href="#teams">TEAMS</a>
+        <a href="#about">ABOUT</a>
+    </div>
+</header>
+
+
+<main class="container" id="home">
+
+    <section class="hero">
+
+        <div class="badge">
+            <span class="badge-dot"></span>
+            STATISTICAL ANALYSIS
+        </div>
+
+        <h1>
+            INSTANT <span>VIRTUAL</span><br>
+            MATCHES
+        </h1>
+
+        <p>
+            AI-POWERED FOOTBALL MATCH ANALYSIS.
+            Smart football data, clear match analysis and
+            estimated probabilities in one mobile dashboard.
+        </p>
+
+    </section>
+
+
+    <section class="stats">
+
+        <div class="stat">
+            <strong id="fixtureCount">6</strong>
+            <span>TODAY'S MATCHES</span>
+        </div>
+
+        <div class="stat">
+            <strong>8</strong>
+            <span>MARKETS</span>
+        </div>
+
+        <div class="stat">
+            <strong>24/7</strong>
+            <span>ANALYSIS</span>
+        </div>
+
+    </section>
+
+
+    <section id="today">
+
+        <h2 class="section-title">TODAY'S MATCH ANALYSIS</h2>
+
+        <div class="toolbar">
+
+            <div class="filter-label">League</div>
+
+            <div class="filter-row" id="leagueFilters">
+                <button class="filter active" data-league="ALL">ALL</button>
+                <button class="filter" data-league="EPL">EPL</button>
+                <button class="filter" data-league="LALIGA">LALIGA</button>
+                <button class="filter" data-league="UCL">UCL</button>
+                <button class="filter" data-league="BUNDESLIGA">BUNDESLIGA</button>
+            </div>
+
+            <div class="filter-label" style="margin-top:12px;">Market</div>
+
+            <div class="filter-row" id="marketFilters">
+                <button class="filter active" data-market="ALL">ALL</button>
+                <button class="filter" data-market="1X2">1X2</button>
+                <button class="filter" data-market="DOUBLE">DOUBLE CHANCE</button>
+                <button class="filter" data-market="GG">GG / NG</button>
+                <button class="filter" data-market="GOALS3">3+ GOALS</button>
+                <button class="filter" data-market="WINGG">WIN + GG</button>
+                <button class="filter" data-market="TEAMGOALS">TEAM GOALS</button>
+                <button class="filter" data-market="TOTAL">OVER / UNDER</button>
+                <button class="filter" data-market="EARLY">EARLY DRAW</button>
+            </div>
+
+            <div class="filter-label" style="margin-top:12px;">Signal</div>
+
+            <div class="filter-row" id="confidenceFilters">
+                <button class="filter active" data-confidence="ALL">SHOW ALL</button>
+                <button class="filter" data-confidence="HIGH">HIGH SIGNAL</button>
+                <button class="filter" data-confidence="MEDIUM">MEDIUM+</button>
+            </div>
+
+            <div class="search-box" id="searchBox">
+                <input id="searchInput" type="search" placeholder="Search team or match...">
+            </div>
+
+        </div>
+
+
+        <div class="match-grid" id="matchGrid"></div>
+
+    </section>
+
+
+    <section class="top-signals" id="predictions">
+
+        <h2 class="section-title">TODAY'S TOP STATISTICAL SIGNALS</h2>
+
+        <div class="signal-list" id="topSignals"></div>
+
+    </section>
+
+
+    <section class="upload-section">
+
+        <h2 class="section-title">MATCH SCREENSHOT ANALYSIS</h2>
+
+        <div class="upload-box">
+
+            <div class="upload-icon">📷</div>
+
+            <h3>UPLOAD MATCH SCREENSHOT</h3>
+
+            <p>
+                Upload a football match screenshot for future
+                OCR/data-analysis integration.
+                This frontend does not invent missing information.
+            </p>
+
+            <label class="upload-btn" for="screenshotInput">
+                TAP TO UPLOAD SCREENSHOT
+            </label>
+
+            <input id="screenshotInput" type="file" accept="image/*">
+
+            <img id="preview" class="preview" alt="Uploaded screenshot preview">
+
+        </div>
+
+    </section>
+
+
+    <section class="history" id="history">
+
+        <h2 class="section-title">PREDICTION HISTORY</h2>
+
+        <div style="overflow-x:auto;">
+
+            <table class="history-table">
+
+                <thead>
+                    <tr>
+                        <th>MATCH</th>
+                        <th>MARKET</th>
+                        <th>PROB.</th>
+                        <th>RESULT</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Chelsea vs Arsenal</td>
+                        <td>OVER 2.5</td>
+                        <td>68%</td>
+                        <td class="correct">CORRECT</td>
+                    </tr>
+
+                    <tr>
+                        <td>Madrid vs Sevilla</td>
+                        <td>1X</td>
+                        <td>76%</td>
+                        <td class="correct">CORRECT</td>
+                    </tr>
+
+                    <tr>
+                        <td>Munich vs Dortmund</td>
+                        <td>GG</td>
+                        <td>64%</td>
+                        <td>PENDING</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer id="about">
+
+    <div class="footer-brand">
+        INSTANT VIRTUAL MATCHES
+    </div>
+
+    <p>
+        SMART FOOTBALL DATA. CLEAR MATCH ANALYSIS.
+    </p>
+
+    <p>
+        Instant Virtual Matches provides statistical football
+        analysis and estimated probabilities. These predictions
+        are not guarantees of match outcomes. Always verify
+        information from reliable sources.
+    </p>
+
+    <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#today">Today</a>
+        <a href="#history">History</a>
+        <a href="#about">About</a>
+    </div>
+
+</footer>
+
+
+<!-- FULL ANALYSIS MODAL -->
+
+<div class="modal" id="analysisModal">
+
+    <div class="modal-card">
+
+        <div class="modal-head">
+            <strong>FULL MATCH ANALYSIS</strong>
+            <button class="close" id="closeModal">✕</button>
+        </div>
+
+        <div id="analysisContent"></div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* ==========================================
+   DEMO FOOTBALL DATA
+   Replace with PHP/API data later.
+========================================== */
+
+const matches = [
+
+    {
+        id:1,
+        league:"EPL",
+        time:"3:00 PM",
+        home:"Manchester United",
+        away:"Brighton",
+        homeProb:58,
+        drawProb:25,
+        awayProb:17,
+        gg:72,
+        over25:65,
+        oneX:83,
+        goals3:58,
+        winGG:42,
+        home15:68,
+        away15:55,
+        total15:82,
+        total25:65,
+        early:"INSUFFICIENT DATA",
+        homeForm:["W","W","D","W","L"],
+        awayForm:["W","D","L","W","W"],
+        homeStrength:78,
+        awayStrength:71,
+        homeGoals:1.8,
+        awayGoals:1.4,
+        homeBtts:60,
+        awayBtts:70
+    },
+
+    {
+        id:2,
+        league:"EPL",
+        time:"5:30 PM",
+        home:"Chelsea",
+        away:"Arsenal",
+        homeProb:43,
+        drawProb:27,
+        awayProb:30,
+        gg:74,
+        over25:68,
+        oneX:70,
+        goals3:61,
+        winGG:32,
+        home15:66,
+        away15:62,
+        total15:85,
+        total25:68,
+        early:"INSUFFICIENT DATA",
+        homeForm:["W","D","W","L","W"],
+        awayForm:["W","W","D","W","L"],
+        homeStrength:76,
+        awayStrength:79,
+        homeGoals:1.7,
+        awayGoals:1.9,
+        homeBtts:65,
+        awayBtts:68
+    },
+
+    {
+        id:3,
+        league:"LALIGA",
+        time:"7:00 PM",
+        home:"Real Madrid",
+        away:"Sevilla",
+        homeProb:70,
+        drawProb:18,
+        awayProb:12,
+        gg:61,
+        over25:71,
+        oneX:88,
+        goals3:66,
+        winGG:43,
+        home15:78,
+        away15:48,
+        total15:88,
+        total25:71,
+        early:"INSUFFICIENT DATA",
+        homeForm:["W","W","W","D","W"],
+        awayForm:["L","D","W","L","W"],
+        homeStrength:91,
+        awayStrength:72,
+        homeGoals:2.2,
+        awayGoals:1.0,
+        homeBtts:58,
+        awayBtts:52
+    },
+
+    {
+        id:4,
+        league:"UCL",
+        time:"8:00 PM",
+        home:"Liverpool",
+        away:"Inter",
+        homeProb:48,
+        drawProb:26,
+        awayProb:26,
+        gg:73,
+        over25:63,
+        oneX:74,
+        goals3:55,
+        winGG:35,
+        home15:71,
+        away15:64,
+        total15:81,
+        total25:63,
+        early:"INSUFFICIENT DATA",
+        homeForm:["W","W","L","W","D"],
+        awayForm:["W","D","W","W","L"],
+        homeStrength:84,
+        awayStrength:82,
+        homeGoals:1.9,
+        awayGoals:1.6,
+        homeBtts:64,
+        awayBtts:67
+    },
+
+    {
+        id:5,
+        league:"BUNDESLIGA",
+        time:"8:30 PM",
+        home:"Bayern Munich",
+        away:"Dortmund",
+        homeProb:62,
+        drawProb:20,
+        awayProb:18,
+        gg:78,
+        over25:79,
+        oneX:82,
+        goals3:76,
+        winGG:49,
+        home15:81,
+        away15:70,
+        total15:93,
+        total25:79,
+        early:"INSUFFICIENT DATA",
+        homeForm:["W","W","W","L","W"],
+        awayForm:["W","L","W","D","W"],
+        homeStrength:89,
+        awayStrength:80,
+        homeGoals:2.5,
+        awayGoals:1.8,
+        homeBtts:71,
+        awayBtts:73
+    },
+
+    {
+        id:6,
+        league:"EPL",
+        time:"9:00 PM",
+        home:"Manchester City",
+        away:"Tottenham",
+        homeProb:66,
+        drawProb:19,
+        awayProb:15,
+        gg:73,
+        over25:75,
+        oneX:85,
+        goals3:70,
+        winGG:46,
+        home15:80,
+        away15:59,
+        total15:91,
+        total25:75,
+        early:"INSUFFICIENT DATA",
+        homeForm:["W","W","W","W","D"],
+        awayForm:["L","W","D","L","W"],
+        homeStrength:92,
+        awayStrength:77,
+        homeGoals:2.4,
+        awayGoals:1.5,
+        homeBtts:63,
+        awayBtts:66
+    }
+
+];
+
+
+/* ==========================================
+   STATE
+========================================== */
+
+let selectedLeague = "ALL";
+let selectedMarket = "ALL";
+let selectedConfidence = "ALL";
+let searchTerm = "";
+
+
+/* ==========================================
+   HELPERS
+========================================== */
+
+function confidence(prob){
+
+    if(prob >= 70) return "HIGH";
+    if(prob >= 50) return "MEDIUM";
+    return "LOW";
+
+}
+
+function confidenceClass(prob){
+
+    const c = confidence(prob);
+
+    if(c === "HIGH") return "high";
+    if(c === "MEDIUM") return "medium";
+
+    return "low";
+}
+
+function signalText(prob){
+
+    const c = confidence(prob);
+
+    if(c === "HIGH") return "HIGH STATISTICAL SIGNAL";
+    if(c === "MEDIUM") return "MEDIUM STATISTICAL SIGNAL";
+
+    return "LOW STATISTICAL SIGNAL";
+}
+
+function marketProbability(match){
+
+    switch(selectedMarket){
+
+        case "1X2":
+            return Math.max(
+                match.homeProb,
+                match.drawProb,
+                match.awayProb
+            );
+
+        case "DOUBLE":
+            return Math.max(
+                match.oneX,
+                match.homeProb + match.awayProb,
+                match.drawProb + match.awayProb
+            );
+
+        case "GG":
+            return match.gg;
+
+        case "GOALS3":
+            return match.goals3;
+
+        case "WINGG":
+            return match.winGG;
+
+        case "TEAMGOALS":
+            return Math.max(
+                match.home15,
+                match.away15
+            );
+
+        case "TOTAL":
+            return match.total25;
+
+        case "EARLY":
+            return 0;
+
+        default:
+            return Math.max(
+                match.homeProb,
+                match.drawProb,
+                match.awayProb,
+                match.gg,
+                match.over25
+            );
+    }
+}
+
+
+/* ==========================================
+   RENDER MATCHES
+========================================== */
+
+function renderMatches(){
+
+    const grid = document.getElementById("matchGrid");
+
+    grid.innerHTML = "";
+
+    const filtered = matches.filter(match => {
+
+        const leagueMatch =
+            selectedLeague === "ALL" ||
+            match.league === selectedLeague;
+
+        const searchMatch =
+            !searchTerm ||
+            `${match.home} ${match.away} ${match.league}`
+            .toLowerCase()
+            .includes(searchTerm.toLowerCase());
+
+        let confidenceMatch = true;
+
+        if(selectedConfidence === "HIGH"){
+            confidenceMatch =
+                marketProbability(match) >= 70;
+        }
+
+        if(selectedConfidence === "MEDIUM"){
+            confidenceMatch =
+                marketProbability(match) >= 50;
+        }
+
+        return leagueMatch && searchMatch && confidenceMatch;
+
+    });
+
+
+    document.getElementById("fixtureCount").textContent =
+        filtered.length;
+
+
+    if(filtered.length === 0){
+
+        grid.innerHTML = `
+            <div class="upload-box">
+                <h3>NO MATCHES FOUND</h3>
+                <p>
+                    Try another league, market, confidence filter,
+                    or search term.
+                </p>
+            </div>
+        `;
+
+        return;
+    }
+
+
+    filtered.forEach(match => {
+
+        const strongest =
+            marketProbability(match);
+
+        const card = document.createElement("article");
+
+        card.className = "match-card";
+
+        card.innerHTML = `
+
+            <div class="match-top">
+                <span class="league">${match.league}</span>
+                <span class="time">Today • ${match.time}</span>
+            </div>
+
+            <div class="teams">
+
+                <div class="team">
+                    ${match.home}
+                </div>
+
+                <div class="vs">VS</div>
+
+                <div class="team">
+                    ${match.away}
+                </div>
+
+            </div>
+
+            <div class="prediction-title">
+                1X2 ESTIMATED PROBABILITY
+            </div>
+
+            <div class="prob-grid">
+
+                <div class="prob">
+                    <label>HOME</label>
+                    <strong>${match.homeProb}%</strong>
+                    <div class="bar">
+                        <i style="width:${match.homeProb}%"></i>
+                    </div>
+                </div>
+
+                <div class="prob">
+                    <label>DRAW</label>
+                    <strong>${match.drawProb}%</strong>
+                    <div class="bar">
+                        <i style="width:${match.drawProb}%;background:var(--orange)"></i>
+                    </div>
+                </div>
+
+                <div class="prob">
+                    <label>AWAY</label>
+                    <strong>${match.awayProb}%</strong>
+                    <div class="bar">
+                        <i style="width:${match.awayProb}%;background:var(--blue)"></i>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="market-mini">
+
+                <div>
+                    <span>GG</span>
+                    <b>${match.gg}%</b>
+                </div>
+
+                <div>
+                    <span>OVER 2.5</span>
+                    <b>${match.over25}%</b>
+                </div>
+
+                <div>
+                    <span>1X</span>
+                    <b>${match.oneX}%</b>
+                </div>
+
+            </div>
+
+
+            <div class="signal ${confidenceClass(strongest)}">
+                ${signalText(strongest)} • ${strongest}%
+            </div>
+
+
+            <button
+                class="full-btn"
+                onclick="openAnalysis(${match.id})">
+                VIEW FULL ANALYSIS
+            </button>
+
+        `;
+
+        grid.appendChild(card);
+
+    });
+
+}
+
+
+/* ==========================================
+   TOP SIGNALS
+========================================== */
+
+function renderTopSignals(){
+
+    const list =
+        document.getElementById("topSignals");
+
+    const signals = [];
+
+    matches.forEach(match => {
+
+        signals.push({
+            match:
+                `${match.home} vs ${match.away}`,
+            market:"1X",
+            probability:match.oneX
+        });
+
+        signals.push({
+            match:
+                `${match.home} vs ${match.away}`,
+            market:"OVER 2.5",
+            probability:match.over25
+        });
+
+        signals.push({
+            match:
+                `${match.home} vs ${match.away}`,
+            market:"GG",
+            probability:match.gg
+        });
+
+    });
+
+
+    signals.sort(
+        (a,b) => b.probability - a.probability
+    );
+
+
+    list.innerHTML = signals
+        .slice(0,5)
+        .map((s,index) => `
+
+            <div class="signal-item">
+
+                <div class="rank">
+                    ${index + 1}
+                </div>
+
+                <div class="signal-info">
+
+                    <strong>${s.match}</strong>
+
+                    <span>
+                        ${s.market} • Statistical model estimate
+                    </span>
+
+                </div>
+
+                <div class="signal-percent">
+                    ${s.probability}%
+                </div>
+
+            </div>
+
+        `)
+        .join("");
+
+}
+
+
+/* ==========================================
+   FULL ANALYSIS
+========================================== */
+
+function openAnalysis(id){
+
+    const match =
+        matches.find(m => m.id === id);
+
+    if(!match) return;
+
+
+    const content =
+        document.getElementById("analysisContent");
+
+
+    const formHTML = form => {
+
+        return form.map(x => {
+
+            let cls = "draw";
+
+            if(x === "W") cls = "win";
+            if(x === "L") cls = "loss";
+
+            return `<span class="${cls}">${x}</span>`;
+
+        }).join("");
+
+    };
+
+
+    content.innerHTML = `
+
+        <div class="analysis-header">
+
+            <div class="league">
+                ${match.league}
+            </div>
+
+            <div class="analysis-teams">
+                ${match.home}
+            </div>
+
+            <div class="analysis-vs">
+                VS
+            </div>
+
+            <div class="analysis-teams">
+                ${match.away}
+            </div>
+
+        </div>
+
+
+        <div class="analysis-section">
+
+            <h3>RECENT FORM</h3>
+
+            <p style="font-size:9px;color:var(--muted);margin-bottom:6px">
+                HOME
+            </p>
+
+            <div class="form">
+                ${formHTML(match.homeForm)}
+            </div>
+
+            <p style="font-size:9px;color:var(--muted);margin:12px 0 6px">
+                AWAY
+            </p>
+
+            <div class="form">
+                ${formHTML(match.awayForm)}
+            </div>
+
+        </div>
+
+
+        <div class="analysis-section">
+
+            <h3>TEAM STRENGTH</h3>
+
+            <div class="metric-grid">
+
+                <div class="metric">
+                    <small>${match.home}</small>
+                    <strong>${match.homeStrength}/100</strong>
+                </div>
+
+                <div class="metric">
+                    <small>${match.away}</small>
+                    <strong>${match.awayStrength}/100</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="analysis-section">
+
+            <h3>GOAL STATISTICS</h3>
+
+            <div class="metric-grid">
+
+                <div class="metric">
+                    <small>HOME AVG GOALS</small>
+                    <strong>${match.homeGoals}</strong>
+                </div>
+
+                <div class="metric">
+                    <small>AWAY AVG GOALS</small>
+                    <strong>${match.awayGoals}</strong>
+                </div>
+
+                <div class="metric">
+                    <small>HOME BTTS</small>
+                    <strong>${match.homeBtts}%</strong>
+                </div>
+
+                <div class="metric">
+                    <small>AWAY BTTS</small>
+                    <strong>${match.awayBtts}%</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="analysis-section">
+
+            <h3>1X2 PROBABILITIES</h3>
+
+            <div class="market-row">
+                <span>HOME WIN</span>
+                <strong>${match.homeProb}%</strong>
+            </div>
+
+            <div class="market-row">
+                <span>DRAW</span>
+                <strong>${match.drawProb}%</strong>
+            </div>
+
+            <div class="market-row">
+                <span>AWAY WIN</span>
+                <strong>${match.awayProb}%</strong>
+            </div>
+
+        </div>
+
+
+        <div class="analysis-section">
+
+            <h3>ALL MARKET ANALYSIS</h3>
+
+            <div class="market-row">
+                <span>1X</span>
+                <strong>${match.oneX}%</strong>
+            </div>
+
+            <div class="market-row">
+                <span>GG</span>
+                <strong>${match.gg}%</strong>
+            </div>
+
+            <div class="market-row">
+                <span>NG</span>
+                <strong>${100-match.gg}%</strong>
+            </div>
+
+            <div class="market-row">
+                <span>3+ GOALS</span>
+                <strong>${match.goals3}%</strong>
+            </div>
+
+            <div class="market-row">
+                <span>HOME + GG</span>
+                <strong>${match.winGG}%</strong>
+            </div>
+
+            <div class="market-row">
+                <span>HOME OVER 1.5</span>
+                <strong>${match.home15}%</strong>
+            </div>
+
+            <div class="market-row">
+                <span>AWAY OVER 1.5</span>
+                <strong>${match.away15}%</strong>
+            </div>
+
+            <div class="market-row">
+                <span>OVER 1.5</span>
+                <strong>${match.total15}%</strong>
+            </div>
+
+            <div class="market-row">
+                <span>OVER 2.5</span>
+                <strong>${match.total25}%</strong>
+            </div>
+
+            <div class="market-row">
+                <span>EARLY DRAW</span>
+                <strong style="color:var(--orange)">
+                    ${match.early}
+                </strong>
+            </div>
+
+        </div>
+
+
+        <div class="analysis-section">
+
+            <h3>WHY THIS SIGNAL?</h3>
+
+            <ul class="why-list">
+
+                <li>
+                    • Recent form is included as a supporting factor.
+                </li>
+
+                <li>
+                    • Team-strength estimates are included in the model.
+                </li>
+
+                <li>
+                    • Recent goal and BTTS statistics influence the
+                    goal-market estimates.
+                </li>
+
+                <li>
+                    • Multiple statistical factors are combined instead
+                    of relying on one statistic.
+                </li>
+
+                <li>
+                    • Missing or insufficient data should reduce confidence
+                    rather than being invented.
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="signal ${confidenceClass(
+            Math.max(
+                match.homeProb,
+                match.drawProb,
+                match.awayProb
+            )
+        )}">
+
+            MODEL ESTIMATES ARE NOT GUARANTEES
+
+        </div>
+
+    `;
+
+
+    document
+        .getElementById("analysisModal")
+        .classList.add("open");
+
+}
+
+
+/* ==========================================
+   MODAL CLOSE
+========================================== */
+
+document
+    .getElementById("closeModal")
+    .addEventListener("click", () => {
+
+        document
+            .getElementById("analysisModal")
+            .classList.remove("open");
+
+    });
+
+
+document
+    .getElementById("analysisModal")
+    .addEventListener("click", e => {
+
+        if(e.target.id === "analysisModal"){
+
+            e.currentTarget
+                .classList.remove("open");
+
+        }
+
+    });
+
+
+/* ==========================================
+   LEAGUE FILTER
+========================================== */
+
+document
+    .querySelectorAll("#leagueFilters .filter")
+    .forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            document
+                .querySelectorAll("#leagueFilters .filter")
+                .forEach(b =>
+                    b.classList.remove("active")
+                );
+
+            button.classList.add("active");
+
+            selectedLeague =
+                button.dataset.league;
+
+            renderMatches();
+
+        });
+
+    });
+
+
+/* ==========================================
+   MARKET FILTER
+========================================== */
+
+document
+    .querySelectorAll("#marketFilters .filter")
+    .forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            document
+                .querySelectorAll("#marketFilters .filter")
+                .forEach(b =>
+                    b.classList.remove("active")
+                );
+
+            button.classList.add("active");
+
+            selectedMarket =
+                button.dataset.market;
+
+            renderMatches();
+
+        });
+
+    });
+
+
+/* ==========================================
+   CONFIDENCE FILTER
+========================================== */
+
+document
+    .querySelectorAll("#confidenceFilters .filter")
+    .forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            document
+                .querySelectorAll("#confidenceFilters .filter")
+                .forEach(b =>
+                    b.classList.remove("active")
+                );
+
+            button.classList.add("active");
+
+            selectedConfidence =
+                button.dataset.confidence;
+
+            renderMatches();
+
+        });
+
+    });
+
+
+/* ==========================================
+   SEARCH
+========================================== */
+
+document
+    .getElementById("searchBtn")
+    .addEventListener("click", () => {
+
+        const box =
+            document.getElementById("searchBox");
+
+        box.style.display =
+            box.style.display === "block"
+            ? "none"
+            : "block";
+
+        if(box.style.display === "block"){
+
+            document
+                .getElementById("searchInput")
+                .focus();
+
+        }
+
+    });
+
+
+document
+    .getElementById("searchInput")
+    .addEventListener("input", e => {
+
+        searchTerm = e.target.value;
+
+        renderMatches();
+
+    });
+
+
+/* ==========================================
+   MOBILE MENU
+========================================== */
+
+document
+    .getElementById("menuBtn")
+    .addEventListener("click", () => {
+
+        const menu =
+            document.getElementById("mobileMenu");
+
+        menu.style.display =
+            menu.style.display === "block"
+            ? "none"
+            : "block";
+
+    });
+
+
+/* ==========================================
+   SCREENSHOT PREVIEW
+========================================== */
+
+document
+    .getElementById("screenshotInput")
+    .addEventListener("change", e => {
+
+        const file = e.target.files[0];
+
+        if(!file) return;
+
+        const preview =
+            document.getElementById("preview");
+
+        preview.src =
+            URL.createObjectURL(file);
+
+        preview.style.display = "block";
+
+    });
+
+
+/* ==========================================
+   INITIAL LOAD
+========================================== */
+
+renderMatches();
+renderTopSignals();
+
+</script>
+
+</body>
+</html>
